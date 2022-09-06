@@ -1,0 +1,7 @@
+sometimes we can't find cors becuase of hidden params. So it can be fixed right away. Just intercept the request in interceptor and send the request containing
+a random parameter like "random=1" like https://example.com/api/send?logs=58gdtd73&random=1 or https://example.com/?random=1 and check if the response has 
+displayed a header called Access-Control-Allow-Origin: * if it gets displayed then add a header Origin: https://random.com/ in the request and send to see if the 
+allowed origin header contains the random.com origin name. Remember you should give the origin name same as the given parameter name. Like if you use parameter name
+"hacker=1" then the origin should be hacker.com. And if you make expploit request from foo.com domain then you must provide the parameter name "foo=1"  and Origin: https://www.foo.com"
+ suppose your'e exploting the vulnerability or testing the vuln using a github tool then you must provide the parameter name "github=1" and you can give the value 
+ whatever you want like "github=hahga7g33" but you must give the name of the domain which you are requesting from. Happy Hacking!!!
